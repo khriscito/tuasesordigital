@@ -8,13 +8,6 @@ interface VideoProps {
 }
 
 const Video: React.FC<VideoProps> = ({ url, title }) => {
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="video-container">
       {title && <h3>{title}</h3>}
