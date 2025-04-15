@@ -1,4 +1,13 @@
 import { TFunction } from "react-i18next";
+
+export interface VideoProps {
+  src: string;
+  title?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+}
+
 export interface ContentBlockProps {
   icon: string;
   title: string;

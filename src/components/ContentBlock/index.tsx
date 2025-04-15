@@ -50,57 +50,53 @@ const ContentBlock = ({
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {direction === "right" ? (
-                <ButtonWrapper>
-                  {typeof button === "object" &&
-                    button.map(
-                      (
-                        item: {
-                          color?: string;
-                          title: string;
-                        },
-                        id: number
-                      ) => {
-                        return (
-                          <Button
-                            key={id}
-                            color={item.color}
-                            onClick={() => scrollTo("about")}
-                          >
-                            {t(item.title)}
-                          </Button>
-                        );
-                      }
-                    )}
-                </ButtonWrapper>
-              ) : (
-                <ServiceWrapper>
-                  <Row justify="space-between">
-                    {typeof section === "object" &&
-                      section.map(
-                        (
-                          item: {
-                            title: string;
-                            content: string;
-                            icon: string;
-                          },
-                          id: number
-                        ) => {
-                          return (
-                            <Col key={id} span={11}>
-                              <SvgIcon
-                                src={item.icon}
-                                width="60px"
-                                height="60px"
-                              />
-                              <MinTitle>{t(item.title)}</MinTitle>
-                              <MinPara>{t(item.content)}</MinPara>
-                            </Col>
-                          );
-                        }
-                      )}
-                  </Row>
-                </ServiceWrapper>
-              )}
+  <ButtonWrapper>
+    {typeof button === "object" &&
+      button.map((item, id) => (
+        <Button
+          key={id}
+          color={item.color}
+          onClick={() => scrollTo("about")}
+        >
+          {t(item.title)}
+        </Button>
+      ))}
+  </ButtonWrapper>
+) : (
+  <ServiceWrapper>
+    <Row justify="space-between">
+      {typeof section === "object" &&
+        section.map((item, id) => (
+          <Col key={id} span={11}>
+            <SvgIcon src={item.icon} width="60px" height="60px" />
+            <MinTitle>{t(item.title)}</MinTitle>
+            <MinPara>{t(item.content)}</MinPara>
+            {/* Botón de descarga si es el bloque de documentos */}
+            {icon === "documentos.avif" && (
+              <Button
+                  onClick={() => {
+                  const fileMap: { [key: string]: string } = {
+                    "Gaceta Oficial": "documents/Gaceta.pdf",
+                    "Unidades de Medida": "/Mediciones.pdf",
+                    "Providencia": "/Providencia.pdf",
+                  };
+                  const fileUrl = fileMap[item.title];
+                  if (fileUrl) {
+                    const a = document.createElement("a");
+                    a.href = fileUrl;
+                    a.download = fileUrl.split("/").pop()!;
+                    a.click();
+                  }
+                }}
+              >
+                Descargar
+              </Button>
+            )}
+          </Col>
+        ))}
+    </Row>
+  </ServiceWrapper>
+)}
             </ContentWrapper>
           </Col>
         </StyledRow>

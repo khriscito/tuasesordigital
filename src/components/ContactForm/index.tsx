@@ -1,22 +1,57 @@
+import { useEffect } from "react";
 import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Slide } from "react-awesome-reveal";
-import { ContactProps, ValidationTypeProps } from "./types";
-import { useForm } from "../../common/utils/useForm";
-import validate from "../../common/utils/validationRules";
-import { Button } from "../../common/Button";
+import { ContactProps } from "./types";
 import Block from "../Block";
-import Input from "../../common/Input";
-import TextArea from "../../common/TextArea";
-import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+import { ContactContainer } from "./styles";
 
-const Contact = ({ title, content, id, t }: ContactProps) => {
-  const { values, errors, handleChange, handleSubmit } = useForm(validate);
+const Contact = ({ title, content, id }: ContactProps) => {
+  useEffect(() => {
+    const existingScript = document.getElementById("amoforms_script_1449192");
+    const existingForm = document.getElementById("amoforms_widget");
 
-  const ValidationType = ({ type }: ValidationTypeProps) => {
-    const ErrorMessage = errors[type as keyof typeof errors];
-    return <Span>{ErrorMessage}</Span>;
-  };
+    if (existingScript || existingForm) return;
+
+    // Creamos el contenedor que Kommo necesita
+    const formContainer = document.createElement("div");
+    formContainer.id = "amoforms_widget";
+    document.body.appendChild(formContainer);
+
+    // Script inline de configuración
+    const inlineScript = document.createElement("script");
+    inlineScript.innerHTML = `
+      !function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},
+      a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},
+      a[o+r]({id:"1449192",hash:"a60fbe42ee30b85da48104154024c46e",locale:"es"}),
+      a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");
+    `;
+
+    // Script externo de Kommo
+    const script = document.createElement("script");
+    script.src = "https://forms.kommo.com/forms/assets/js/amoforms.js";
+    script.id = "amoforms_script_1449192";
+    script.async = true;
+    script.charset = "utf-8";
+
+    script.onload = () => {
+      // Mover el formulario al placeholder visual
+      const form = document.getElementById("amoforms_widget");
+      const placeholder = document.getElementById("kommo-placeholder");
+      if (form && placeholder) {
+        placeholder.appendChild(form);
+      }
+    };
+
+    document.body.appendChild(inlineScript);
+    document.body.appendChild(script);
+
+    return () => {
+      if (formContainer) formContainer.remove();
+      if (inlineScript) inlineScript.remove();
+      if (script) script.remove();
+    };
+  }, []);
 
   return (
     <ContactContainer id={id}>
@@ -26,42 +61,11 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
             <Block title={title} content={content} />
           </Slide>
         </Col>
+
         <Col lg={12} md={12} sm={24} xs={24}>
           <Slide direction="right" triggerOnce>
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
-              <Col span={24}>
-                <Input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={values.name || ""}
-                  onChange={handleChange}
-                />
-                <ValidationType type="name" />
-              </Col>
-              <Col span={24}>
-                <Input
-                  type="text"
-                  name="email"
-                  placeholder="Your Email"
-                  value={values.email || ""}
-                  onChange={handleChange}
-                />
-                <ValidationType type="email" />
-              </Col>
-              <Col span={24}>
-                <TextArea
-                  placeholder="Your Message"
-                  value={values.message || ""}
-                  name="message"
-                  onChange={handleChange}
-                />
-                <ValidationType type="message" />
-              </Col>
-              <ButtonContainer>
-                <Button name="submit">{t("Submit")}</Button>
-              </ButtonContainer>
-            </FormGroup>
+            {/* Este div será donde el script colocará el formulario */}
+            <div id="kommo-placeholder" />
           </Slide>
         </Col>
       </Row>
@@ -70,3 +74,4 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
 };
 
 export default withTranslation()(Contact);
+

@@ -1,16 +1,21 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Documentación asociada al RCV",
+  "text": "A continuación podrá observar los documentos asociados a la responsabilidad social para vehículos",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
-      "icon": "notes.svg"
+      "title": "Gaceta Oficial",
+      "content": "Gaceta oficial de la República Bolivariana de Venezuela. Gaceta oficial 6.835",
+      "icon": "gaceta.avif"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
-      "icon": "notes.svg"
+      "title": "Unidades de Medida",
+      "content": "Unidades de medida para vehículos",
+      "icon": "medicion.avif"
+    },
+    {
+      "title": "Providencia",
+      "content": "Providencia",
+      "icon": "providencia.avif"
     }
   ]
 }

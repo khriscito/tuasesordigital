@@ -9,6 +9,7 @@ export interface ButtonProps {
   name?: string;
   children: React.ReactNode;
   onClick?: () => void;
+  size?: "large" | "default";
 }
 
 export interface SvgIconProps {
@@ -34,3 +35,7 @@ export interface validateProps {
   message: string;
   email: string;
 }
+
+// src/types/global.d.ts
+
+// src/types/global.d.ts

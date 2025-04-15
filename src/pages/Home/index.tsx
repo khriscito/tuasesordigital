@@ -5,23 +5,31 @@ import AboutContent from "../../content/AboutContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/ContactContent.json";
+import Video from "../../components/ContentBlock/Video"
+import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
+import PartnerCarousel from "../../components/PartnerCarousel/PartnerCarousel";
 
-const Contact = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
+const FAQ = lazy(() => import("../../components/FAQ/FAQ"));
 
 const Home = () => {
   return (
     <Container>
       <ScrollToTop />
+      <Video 
+        url="https://www.youtube.com/watch?v=dbTTKGNs1qc"
+        title="Obtenga su póliza RCV "
+      />
+
       <ContentBlock
         direction="right"
         title={IntroContent.title}
         content={IntroContent.text}
         button={IntroContent.button}
-        icon="developer.svg"
+        icon="vehiculo.svg"
         id="intro"
       />
       <MiddleBlock
@@ -34,28 +42,21 @@ const Home = () => {
         title={AboutContent.title}
         content={AboutContent.text}
         section={AboutContent.section}
-        icon="graphs.svg"
+        icon="documentos.avif"
         id="about"
       />
-      <ContentBlock
-        direction="right"
-        title={MissionContent.title}
-        content={MissionContent.text}
-        icon="product-launch.svg"
-        id="mission"
+<TestimonialCarousel />
+
+<Video 
+        url="https://www.youtube.com/watch?v=QbWORk8BJCA"
+        title="Ya Casi ! Estas solo a un paso de obtener tu Póliza "
       />
-      <ContentBlock
-        direction="left"
-        title={ProductContent.title}
-        content={ProductContent.text}
-        icon="waving.svg"
-        id="product"
-      />
-      <Contact
-        title={ContactContent.title}
-        content={ContactContent.text}
-        id="contact"
-      />
+<PartnerCarousel />
+<FAQ
+  title={ContactContent.title}
+  content={ContactContent.text}
+  id="contact"
+/>
     </Container>
   );
 };
