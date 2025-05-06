@@ -10,6 +10,7 @@ export interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   size?: "large" | "default";
+  variant?: "default" | "highlight";
 }
 
 export interface SvgIconProps {

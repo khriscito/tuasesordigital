@@ -21,10 +21,21 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {button && (
-                <Button name="submit"  onClick={() => window.open("https://forms.kommo.com/rdwrtdd", "_blank")}>
-                  {t(button)}
-                </Button>
-              )}
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "1.5rem",
+    }}
+  >
+    <Button
+      name="submit"
+      onClick={() => window.open("https://forms.kommo.com/rdwrtdd", "_blank")}
+    >
+      {t(button)}
+    </Button>
+  </div>
+)}
             </Col>
           </ContentWrapper>
         </Row>

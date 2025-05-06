@@ -210,5 +210,14 @@ export const Styles = createGlobalStyle`
         right: 10px;
     }
 
+.carousel-image-only {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
 `;
 

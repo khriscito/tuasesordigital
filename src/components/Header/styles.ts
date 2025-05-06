@@ -34,8 +34,14 @@ export const CustomNavLink = styled("div")`
 `;
 
 export const Burger = styled("div")`
-  @media only screen and (max-width: 890px) {
-    display: block;
+  @media only screen and (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    gap: 10px;
+    width: 100%; // Para que ocupe todo el ancho disponible
   }
 
   display: none;

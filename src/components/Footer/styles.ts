@@ -19,7 +19,6 @@ export const Title = styled("h4")`
 export const NavLink = styled(Link)`
   display: block;
   font-size: 1rem;
-  margin-bottom: 0.625rem;
   transition: all 0.2s ease-in-out;
 
   &:hover,
@@ -57,7 +56,6 @@ export const Large = styled(Link)`
   text-transform: capitalize;
   line-height: 24px;
   display: block;
-  margin-bottom: 0.625rem;
   transition: all 0.3s ease-in-out;
   max-width: max-content;
 
@@ -141,12 +139,10 @@ export const Label = styled("label")`
   text-transform: capitalize;
   color: #18216d;
   display: block;
-  margin-bottom: 2rem;
   font-family: "Motiva Sans Bold", serif;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;
-    margin-bottom: 1rem;
   }
 `;
 

@@ -47,7 +47,7 @@ const Header = ({ t }: { t: TFunction }) => {
           onClick={() => window.open("https://wa.me/584124431231", "_blank")}
         >
           <Span>
-            <Button>{t("Contáctanos")}</Button>
+            <Button>{t("Whatsapp")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
@@ -66,15 +66,16 @@ const Header = ({ t }: { t: TFunction }) => {
             <MenuItem />
           </NotHidden>
           <Burger onClick={toggleButton}>
+          <span style={{ marginRight: "8px", fontWeight: "bold", color: "#2e186a", fontSize: "20px" }}>MENU</span>
             <Outline />
           </Burger>
         </Row>
         <Drawer closable={false} open={visible} onClose={toggleButton}>
           <Col style={{ marginBottom: "2.5rem" }}>
             <Label onClick={toggleButton}>
-              <Col span={12}>
-                <Menu>Menu</Menu>
-              </Col>
+            <Col style={{ marginBottom: "2rem", textAlign: "center" }}>
+  <Menu style={{ fontSize: "1.8rem", fontWeight: "bold" }}>MENU</Menu>
+</Col>
               <Col span={12}>
                 <Outline />
               </Col>

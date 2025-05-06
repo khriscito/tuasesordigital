@@ -4,7 +4,6 @@ export const StyledContainer = styled("div")`
   display: inline-block;
   width: 100%;
   padding: 10px 5px;
-  margin-bottom: -0.625rem;
 `;
 
 export const StyledTextArea = styled("textarea")`

@@ -6,7 +6,7 @@ const { Panel } = Collapse;
 
 
 export const StyledPanel = styled(Panel)`
-  margin-bottom: 1rem !important;
+
   background: #a2d1e5;
   border-radius: 10px !important;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
@@ -43,6 +43,10 @@ const faqData = [
     answer: "La vigencia del RCV es por un año"
   },
   {
+    question: "¿Por que la RCV esta en Euros",
+    answer: "TCR significa, Tipo de Cambio Referencial oficial de la moneda de mayor valor, publicado por el Banco Central de Venezuela, según el promedio resultante de las operaciones diarias de las mesas de cambio. Actualmente un TCR, equivale a un Euro. En esa unidad TCR, están establecidas las coberturas y primas de la Póliza de RCV."
+  },
+  {
     question: "¿Las coberturas son nacionales?",
     answer: "Si, nuestras pólizas R.C.V tienen cobertura a nivel nacional"
   },
@@ -51,7 +55,7 @@ const faqData = [
     answer: "Desde el momento que nos confirma la adquisición de su RCV, toma 10 min aproximadamente en estar listo."
   },
   {
-    question: "¿Puedo pagar en Dolares?",
+    question: "¿En que moneda puedo pagar mi RCV?",
     answer: "Si,puede pagar en dolares, o en bolívares a tasa B.C.V"
   },
   {
@@ -99,12 +103,22 @@ const FAQ = ({ title, content, id }: { title: string; content: string; id: strin
           ))}
         </Collapse>
   
-        <div style={{ marginTop: "3rem" }}>
-          <h3 style={{ marginBottom: "1rem" }}>Ahora ya estás listo para cotizar</h3>
-          <StyledButton onClick={handleRedirect}>
-            ¡Cotiza ahora!
-          </StyledButton>
-        </div>
+        <div
+  style={{
+    marginTop: "3rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <h3 style={{ marginBottom: "1rem", textAlign: "center" }}>
+    Ahora ya estás listo para Emitir tu Póliza
+  </h3>
+  <StyledButton onClick={handleRedirect}>
+    ¡Emite tu póliza!
+  </StyledButton>
+</div>
+
       </div>
     );
   };

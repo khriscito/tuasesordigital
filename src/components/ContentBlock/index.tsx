@@ -77,8 +77,8 @@ const ContentBlock = ({
                   onClick={() => {
                   const fileMap: { [key: string]: string } = {
                     "Gaceta Oficial": "documents/Gaceta.pdf",
-                    "Unidades de Medida": "/Mediciones.pdf",
-                    "Providencia": "/Providencia.pdf",
+                    "Unidades de Medida": "documents/Mediciones.pdf",
+                    "Providencia": "documents/Providencia.pdf",
                   };
                   const fileUrl = fileMap[item.title];
                   if (fileUrl) {

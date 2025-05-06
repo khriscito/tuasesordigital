@@ -6,6 +6,8 @@ import ContactContent from "../../content/ContactContent.json";
 import Video from "../../components/ContentBlock/Video"
 import TestimonialCarousel from "../../components/TestimonialCarousel/TestimonialCarousel";
 import PartnerCarousel from "../../components/PartnerCarousel/PartnerCarousel";
+import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
+
 
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
@@ -18,9 +20,12 @@ const Home = () => {
     <Container>
       <ScrollToTop />
       <Video 
-        url="https://www.youtube.com/watch?v=dbTTKGNs1qc"
-        title="Obtenga su póliza RCV "
-      />
+  url="/videos/VideoRCV.mp4" 
+  title="Obtenga su póliza RCV desde nuestro portal"
+  local={true}
+/>
+
+<ImageCarousel />
 
       <ContentBlock
         direction="right"
@@ -46,9 +51,10 @@ const Home = () => {
 <TestimonialCarousel />
 
 <Video 
-        url="https://www.youtube.com/watch?v=QbWORk8BJCA"
-        title="Ya Casi ! Estas solo a un paso de obtener tu Póliza "
-      />
+  url="/videos/VideoRCV.mp4" 
+  title="Ya estas a un paso de tener tu RCV!"
+  local={true}
+/>
 <PartnerCarousel />
 <FAQ
   title={ContactContent.title}
