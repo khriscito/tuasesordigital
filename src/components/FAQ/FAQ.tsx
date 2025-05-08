@@ -183,7 +183,7 @@ const faqData = [
       <>
         Puedes escribir a nuestro{" "}
         <a
-          href="https://wa.me/04124431231"
+          href="https://wa.me/584124431231"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -208,7 +208,7 @@ const faqData = [
       <>
         No, soy corredor de seguros regulado, aprobado por la Sudeaseg para trabajar todos los ramos. Trabajo con: pólizas de salud, cobertura de emergencias médicas, pólizas de accidentes personales. Para cotizar puedes escribir al{" "}
         <a
-          href="https://wa.me/04124431231"
+          href="https://wa.me/584124431231"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -232,7 +232,7 @@ const faqData = [
       <>
         Sí, trabajamos con coberturas amplias que incluyen pérdidas parciales, pérdidas totales, robos de vehículos y la RCV. +básica defensa penal +APOV y Grúa. Para cotizar debes escribir al {" "}
         <a
-          href="https://wa.me/04124431231"
+          href="https://wa.me/584124431231"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -257,7 +257,7 @@ const faqData = [
       <>
         Escribe a nuestro teléfono{" "}
         <a
-          href="https://wa.me/04124431231"
+          href="https://wa.me/584124431231"
           target="_blank"
           rel="noopener noreferrer"
           style={{

@@ -1,7 +1,7 @@
 const partners = [
     {
       name: "Real Seguros",
-      image: "img/svg/real.avif"
+      image: "img/svg/Real.avif"
     },
     
   ];
