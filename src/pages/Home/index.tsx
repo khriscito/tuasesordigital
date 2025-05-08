@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import AboutContent from "../../content/AboutContent.json";
 import ContactContent from "../../content/ContactContent.json";
@@ -27,14 +26,6 @@ const Home = () => {
 
 <ImageCarousel />
 
-      <ContentBlock
-        direction="right"
-        title={IntroContent.title}
-        content={IntroContent.text}
-        button={IntroContent.button}
-        icon="vehiculo.svg"
-        id="intro"
-      />
       <MiddleBlock
         title={MiddleBlockContent.title}
         content={MiddleBlockContent.text}
@@ -52,7 +43,7 @@ const Home = () => {
 
 <Video 
   url="/videos/VideoRCV.mp4" 
-  title="Ya estas a un paso de tener tu RCV!"
+  title="¡Estás a un botón de conseguir tu póliza!"
   local={true}
 />
 <PartnerCarousel />

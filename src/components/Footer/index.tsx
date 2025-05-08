@@ -5,11 +5,8 @@ import Container from "../../common/Container";
 import styled from "styled-components";
 import {
   FooterSection,
-  Extra,
   Para,
-  Chat,
   Empty,
-  FooterContainer,
   Language,
 } from "./styles";
 
@@ -38,14 +35,15 @@ const Footer = ({ t }: { t: TFunction }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: "45px",
-          height: "45px",
+          width: label === "WhatsApp" ? "50px" : "40px",
+          height: label === "WhatsApp" ? "50px" : "40px",
           borderRadius: "50%",
-          backgroundColor: backgroundColor, // Aplicamos el color de fondo directamente al ícono
+          backgroundColor: backgroundColor,
           transition: "all 0.3s ease-in-out",
         }}
       >
-        <SvgIcon src={src} width="25px" height="25px" />
+        <SvgIcon src={src}   width={label === "WhatsApp" ? "50px" : "40px"}
+  height={label === "WhatsApp" ? "50px" : "40px"} />
       </a>
     );
   };
@@ -56,8 +54,8 @@ const Footer = ({ t }: { t: TFunction }) => {
         <Container>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contactanos")}</Language>
-              <Para>{t(`Comunicate con nosotros`)}</Para>
+              <Language>{t("Contáctanos")}</Language>
+              <Para>{t(`Comunicaté con nosotros`)}</Para>
               <IconWrapper>
                 <SocialLink
                   href="https://wa.me/+584124431231"

@@ -58,7 +58,7 @@ const PartnerCarousel = () => {
   return (
     <>
       <Styles /> {/* Asegúrate de aplicar los estilos globales */}
-      <div className="carousel-container">
+      <div className="carousel-container" style={{ marginTop: '2rem' }}>
       <h6>Aliados Comerciales</h6>
         <div className="carousel-wrapper">
           <div
