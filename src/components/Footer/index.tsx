@@ -23,6 +23,17 @@ const IconWrapper = styled.div`
   margin-top: 1rem;
 `;
 
+const AttributionWrapper = styled.div`
+  display: flex;
+  justify-content: center;  // Centra el contenido horizontalmente
+  align-items: center;      // Centra el contenido verticalmente
+  width: 100%;              // Asegura que el contenedor ocupe todo el ancho disponible
+  text-align: center;       // Asegura que el texto también se centre
+  margin-top: 2rem;         // Espacio adicional desde el contenido anterior
+  font-size: 0.9rem;
+  color: #555;              // Color suave para no llamar demasiado la atención
+`;
+
 const Footer = ({ t }: { t: TFunction }) => {
   const SocialLink = ({ href, src, label, backgroundColor }: SocialLinkProps) => {
     return (
@@ -42,8 +53,7 @@ const Footer = ({ t }: { t: TFunction }) => {
           transition: "all 0.3s ease-in-out",
         }}
       >
-        <SvgIcon src={src}   width={label === "WhatsApp" ? "50px" : "40px"}
-  height={label === "WhatsApp" ? "50px" : "40px"} />
+        <SvgIcon src={src} width={label === "WhatsApp" ? "50px" : "40px"} height={label === "WhatsApp" ? "50px" : "40px"} />
       </a>
     );
   };
@@ -90,10 +100,25 @@ const Footer = ({ t }: { t: TFunction }) => {
           </Row>
         </Container>
       </FooterSection>
+
+      {/* Atribución a SolveIT Venezuela */}
+      <AttributionWrapper>
+        <Para>
+          Página diseñada por <a href="https://www.instagram.com/solveitvzla" target="_blank" rel="noopener noreferrer" style={{ color: "#128C7E", fontWeight: "bold" }}>SolveIT Venezuela           <SvgIcon 
+            src="SIT.avif"  // Cambia por el nombre correcto del ícono
+            width="20px"  // Tamaño pequeño para el ícono
+            height="20px" 
+          /></a>
+
+        </Para>
+
+      </AttributionWrapper>
     </>
   );
 };
 
 export default withTranslation()(Footer);
+
+
 
 

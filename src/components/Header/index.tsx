@@ -33,7 +33,7 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("intro")}>
+        <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
           <Span>{t("RCV")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => scrollTo("about")}>
