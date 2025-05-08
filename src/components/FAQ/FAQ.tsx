@@ -280,9 +280,6 @@ const faqData = [
 
 
 const FAQ = ({ title, content, id }: { title: string; content: string; id: string }) => {
-  const handleRedirect = () => {
-    window.open("https://forms.kommo.com/rdwrtdd", "_blank"); // Cambia por tu enlace real
-  };
 
   return (
     <div id={id} style={{ margin: "4rem 0", textAlign: "center" }}>
