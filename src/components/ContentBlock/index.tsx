@@ -50,59 +50,128 @@ const ContentBlock = ({
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {direction === "right" ? (
-  <ButtonWrapper>
-    {typeof button === "object" &&
-      button.map((item, id) => (
-        <Button
-          key={id}
-          color={item.color}
-          onClick={() => scrollTo("about")}
-        >
-          {t(item.title)}
-        </Button>
-      ))}
-  </ButtonWrapper>
-) : (
-  <ServiceWrapper>
-    <Row justify="space-between">
-      {typeof section === "object" &&
-        section.map((item, id) => (
-          <Col key={id} span={11}>
-            <SvgIcon src={item.icon} width="60px" height="60px" />
-            <MinTitle>{t(item.title)}</MinTitle>
-            <MinPara>{t(item.content)}</MinPara>
-            {/* Botón de descarga si es el bloque de documentos */}
-            {icon === "documentos.avif" && (
-              <Button
-                  onClick={() => {
-                  const fileMap: { [key: string]: string } = {
-                    "Gaceta Oficial": "documents/Gaceta.pdf",
-                    "Unidades de Medida": "documents/Mediciones.pdf",
-                    "Providencia": "documents/Providencia.pdf",
-                  };
-                  const fileUrl = fileMap[item.title];
-                  if (fileUrl) {
-                    const a = document.createElement("a");
-                    a.href = fileUrl;
-                    a.download = fileUrl.split("/").pop()!;
-                    a.click();
-                  }
-                }}
-              >
-                Descargar
-              </Button>
-            )}
-          </Col>
-        ))}
-    </Row>
-  </ServiceWrapper>
+                <ButtonWrapper>
+                  {typeof button === "object" &&
+                    button.map((item, id) => (
+                      <Button
+                        key={id}
+                        color={item.color}
+                        onClick={() => scrollTo("about")}
+                      >
+                        {t(item.title)}
+                      </Button>
+                    ))}
+                </ButtonWrapper>
+              ) : (
+                <ServiceWrapper>
+                  <Row justify="space-between">
+                    {typeof section === "object" &&
+                      section.map((item, id) => (
+                        <Col key={id} span={11}>
+                          <SvgIcon src={item.icon} width="60px" height="60px" />
+                          <MinTitle>{t(item.title)}</MinTitle>
+                          <MinPara>{t(item.content)}</MinPara>
+                          {icon === "documentos.avif" && (
+  <div style={{ marginBottom: "1rem" }}>
+    <Button
+      onClick={() => {
+        const fileMap: { [key: string]: string } = {
+          "Gaceta Oficial": "documents/Gaceta.pdf",
+          "Unidades de Medida": "documents/Mediciones.pdf",
+        };
+        const fileUrl = fileMap[item.title];
+        if (fileUrl) {
+          const a = document.createElement("a");
+          a.href = fileUrl;
+          a.download = fileUrl.split("/").pop()!;
+          a.click();
+        }
+      }}
+    >
+      Descargar
+    </Button>
+  </div>
 )}
+                        </Col>
+                      ))}
+                  </Row>
+                </ServiceWrapper>
+              )}
             </ContentWrapper>
           </Col>
         </StyledRow>
       </Fade>
+
+      {/* 🚨 Inserción del botón destacado animado aquí */}
+      <div style={{ textAlign: 'center', position: 'relative', marginTop: '3rem' }}>
+        <div style={{ marginBottom: '0.5rem', animation: 'bounce 1.5s infinite' }}>
+          <span style={{ fontSize: '2rem' }}>⬇️⬇️</span>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+          }}
+        >
+          <div style={{ animation: 'bounceSide 1.5s infinite' }}>
+            <span style={{ fontSize: '2rem' }}>➡️</span>
+          </div>
+
+          <div
+            style={{
+              animation: 'pulse 1.5s infinite',
+              display: 'inline-block',
+              background: 'linear-gradient(90deg, #007bff, #00c6ff)',
+              borderRadius: '50px',
+              boxShadow: '0 8px 20px rgba(0, 128, 255, 0.4)',
+              padding: '0.3rem',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}
+            onMouseOver={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.05)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 10px 25px rgba(0, 128, 255, 0.5)';
+            }}
+            onMouseOut={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 20px rgba(0, 128, 255, 0.4)';
+            }}
+          >
+            <Button color="primary" size="large" variant="highlight" onClick={() => window.open("https://forms.kommo.com/rdwrtdd", "_blank")}>
+              🚗 Cotiza Ahora
+            </Button>
+          </div>
+
+          <div style={{ animation: 'bounceSide 1.5s infinite' }}>
+            <span style={{ fontSize: '2rem' }}>⬅️</span>
+          </div>
+        </div>
+
+        <style>
+          {`
+            @keyframes pulse {
+              0% { transform: scale(1); }
+              50% { transform: scale(1.05); }
+              100% { transform: scale(1); }
+            }
+
+            @keyframes bounce {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-8px); }
+            }
+
+            @keyframes bounceSide {
+              0%, 100% { transform: translateX(0); }
+              50% { transform: translateX(-8px); }
+            }
+          `}
+        </style>
+      </div>
     </ContentSection>
   );
 };
 
 export default withTranslation()(ContentBlock);
+

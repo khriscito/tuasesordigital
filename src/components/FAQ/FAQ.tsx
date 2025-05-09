@@ -67,31 +67,6 @@ const faqData = [
     answer: "Con una llamada telefónica a la empresa de seguros, se solicita el servicio de defensa penal y la empresa asignará un abogado que te asistirá y representará físicamente en caso de una detención de forma inmediata."
   },
   {
-    question: "Tengo un vehículo especial, ¿cómo puedo saber el precio del RCV?",
-    answer: (
-      <>
-        Puedes escribir a nuestro{" "}
-        <a
-          href="https://wa.me/584124431231"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "#25d366", // Color verde característico de WhatsApp
-            fontWeight: "bold",
-            textDecoration: "underline",
-            transition: "color 0.3s ease, transform 0.3s ease",
-          }}
-          onMouseOver={(e) => e.currentTarget.style.color = "#128c7e"} // Cambio de color al pasar el mouse
-          onMouseOut={(e) => e.currentTarget.style.color = "#25d366"} // Restaurar el color original
-          onClick={(e) => e.currentTarget.style.transform = "scale(1.05)"} // Efecto de escala
-        >
-          WhatsApp
-        </a>
-        , con marca, modelo y año del vehículo para hacerte una cotización personalizada.
-      </>
-    ),
-  },
-  {
     question: "¿Por qué estas RCV funcionan y las otras no?",
     answer: "Porque esta empresa se encuentra regulada por la Sudeaseg, lo que nos brinda una mayor solidez y confianza. Adicional, determinaron sumas aseguradas aceptables (en divisas) que permiten al asegurado enfrentar los daños de choques o arrollamientos causados a un tercero. Antes las sumas aseguradas eran muy bajas en bolívares, mientras que las RCV actuales son más acordes a la realidad"
   },

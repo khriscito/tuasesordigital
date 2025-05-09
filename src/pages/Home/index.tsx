@@ -22,7 +22,9 @@ const Home = () => {
   url="/videos/VideoRCV.mp4" 
   title="Obtenga su póliza RCV desde nuestro portal"
   local={true}
+  preview="/img/svg/Shirley.avif"
 />
+
 
 <ImageCarousel />
 
@@ -31,7 +33,17 @@ const Home = () => {
         content={MiddleBlockContent.text}
         button={MiddleBlockContent.button}
       />
-      <ContentBlock
+<TestimonialCarousel />
+
+<Video 
+  url="/videos/VideoRCV.mp4" 
+  title="Obtenga su póliza RCV desde nuestro portal"
+  local={true}
+  preview="/img/svg/Shirley.avif"
+/>
+
+<PartnerCarousel />
+<ContentBlock
         direction="left"
         title={AboutContent.title}
         content={AboutContent.text}
@@ -39,14 +51,6 @@ const Home = () => {
         icon="documentos.avif"
         id="about"
       />
-<TestimonialCarousel />
-
-<Video 
-  url="/videos/VideoRCV.mp4" 
-  title="¡Estás a un botón de conseguir tu póliza!"
-  local={true}
-/>
-<PartnerCarousel />
 <FAQ
   title={ContactContent.title}
   content={ContactContent.text}
